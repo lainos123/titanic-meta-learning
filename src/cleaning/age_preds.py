@@ -57,10 +57,12 @@ def predict_missing_ages(df):
     df_ageboost.loc[df_ageboost['Age'].isnull(), 'Age'] = predicted_ages
 
     # Print some statistics about the predictions
-    print("\nMissing values after prediction:")
-    print(df_ageboost['Age'].isnull().sum())
-    print("\nAge statistics after imputation:")
-    print(df_ageboost['Age'].describe().round(2))
+    print("\nBefore prediction:")
+    print("Missing values: ", df['Age'].isnull().sum())
+    print("Age stats: \n", df['Age'].describe().round(2))
+    print("\nAfter prediction:")
+    print("Missing values: ", df_ageboost['Age'].isnull().sum())
+    print("Age stats: \n", df_ageboost['Age'].describe().round(2))
 
     return df_ageboost
 
